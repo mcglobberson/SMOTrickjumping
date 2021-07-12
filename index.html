@@ -1,0 +1,341 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link rel="stylesheet" href="styleSheet.css">
+	<link rel="shortcut icon" href="mariot.png">
+	<script>
+				
+		function searchFunction() {
+			// Declare variables
+			var input, filter, table, tr, td, i, txtValue;
+			input = document.getElementById("first");
+			filter = input.value.toUpperCase();
+			table = document.getElementById("jTable");
+			tr = table.getElementsByTagName("tr");
+
+			// Loop through all table rows, and hide those who don't match the search query
+			for (i = 0; i < tr.length; i++) {
+				td = tr[i].getElementsByTagName("td")[0];
+				if (td) {
+					txtValue = td.textContent || td.innerText;
+					if (txtValue.toUpperCase().indexOf(filter) > -1) {
+						tr[i].style.display = "";
+					} else {
+						tr[i].style.display = "none";
+					}
+				}
+			}
+		}
+
+
+
+		function ftdskipper() {
+			var search = document.getElementById("tdskipper").innerText;
+	
+			document.getElementById("jName").innerHTML = search;
+			document.getElementById("jInfo").innerHTML = "";
+			document.getElementById("jLink").innerHTML = '<a href= "https://twitter.com/JoniKauf/status/1299884876158689280?s=19" target="_blank">Jump Clip</a>';
+		}
+
+		function faassault() {
+			var search = document.getElementById("aassault").innerText;
+	
+			document.getElementById("jName").innerHTML = search;
+			document.getElementById("jInfo").innerHTML = "";
+			document.getElementById("jLink").innerHTML = '<a href= "https://twitter.com/AwesomeAggron0/status/1311851609698172928?s=200" target="_blank">Jump Clip</a>';
+		}
+
+        function fbambean() {
+            var search = document.getElementById("bambean").innerText;
+       
+            document.getElementById("jName").innerHTML = search;
+            document.getElementById("jInfo").innerHTML = "";
+			document.getElementById("jLink").innerHTML = '<a href= "https://twitter.com/AwesomeAggron0/status/1258598593725784065?s=20" target="_blank">Jump Clip</a>';
+		}
+
+        function fbarbean() {
+            var search = document.getElementById("barbean").innerText;
+    
+            document.getElementById("jName").innerHTML = search;
+            document.getElementById("jInfo").innerHTML = "";
+			document.getElementById("jLink").innerHTML = '<a href= "https://twitter.com/AwesomeAggron0/status/1255935879069134849?s=20" target="_blank">Jump Clip</a>';
+		}
+
+        function fburrbobb() {
+            var search = document.getElementById("burrbobb").innerText;
+     
+            document.getElementById("jName").innerHTML = search;
+            document.getElementById("jInfo").innerHTML = "You must land in the middle area of the fossil for this to count. <br>You cannot land on the sides which are much lower.";
+			document.getElementById("jLink").innerHTML = '<a href= "https://youtu.be/i4FD0JGWGjM" target="_blank">Jump Clip</a>';
+		}
+
+        function fbst() {
+            var search = document.getElementById("bst").innerText;
+
+            document.getElementById("jName").innerHTML = search;
+            document.getElementById("jInfo").innerHTML = "";
+			document.getElementById("jLink").innerHTML = '<a href= "https://twitter.com/Greg_Coins/status/1154111575726276608" target="_blank">Jump Clip</a>';
+        }
+
+        function fcbo() {
+            var search = document.getElementById("cbo").innerText;
+
+            document.getElementById("jName").innerHTML = search;
+            document.getElementById("jInfo").innerHTML = "";
+			document.getElementById("jLink").innerHTML = '<a href= "https://twitter.com/CorDarSMO/status/1314771381947572225?s=19" target="_blank">Jump Clip</a>';
+        }
+
+        function fcva() {
+            var search = document.getElementById("cva").innerText;
+      
+            document.getElementById("jName").innerHTML = search;
+            document.getElementById("jInfo").innerHTML = "";
+			document.getElementById("jLink").innerHTML = '<a href= "https://twitter.com/CorDarSMO/status/1280262693572628481?s=20" target="_blank">Jump Clip</a>';
+        }
+
+        function fcloudo() {
+            var search = document.getElementById("cloudo").innerText;
+   
+            document.getElementById("jName").innerHTML = search;
+            document.getElementById("jInfo").innerHTML = "";
+			document.getElementById("jLink").innerHTML = '<a href= "https://youtu.be/9Xsf3cRK45w" target="_blank">Jump Clip</a>';
+        }
+
+        function fcushionc() {
+            var search = document.getElementById("cushionc").innerText;
+
+            document.getElementById("jName").innerHTML = search;
+            document.getElementById("jInfo").innerHTML = "";
+			document.getElementById("jLink").innerHTML = '<a href= "https://twitter.com/AwesomeAggron0/status/1255754837725024256?s=20" target="_blank">Jump Clip</a>';
+        }
+
+		function sortTable(n)
+		{
+            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            table = document.getElementById("jTable");
+			switching = true;
+
+				// Set the sorting direction to ascending:
+			dir = "asc";
+
+				/* Make a loop that will continue until
+				no switching has been done: */
+			while (switching)
+			{
+					// Start by saying: no switching is done:
+                switching = false;
+				rows = table.rows;
+
+					 /* Loop through all table rows (except the
+					first, which contains table headers): */
+                for (i = 1; i < (rows.length - 1); i++) {
+						// Start by saying there should be no switching:
+                    shouldSwitch = false;
+						/* Get the two elements you want to compare,
+						one from current row and one from the next: */
+                    x = rows[i].getElementsByTagName("TD")[n];
+                    y = rows[i + 1].getElementsByTagName("TD")[n];
+						 /* Check if the two rows should switch place,
+						based on the direction, asc or desc: */
+                    if (dir == "asc") {
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+								// If so, mark as a switch and break the loop:
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else if (dir == "desc") {
+                        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                            // If so, mark as a switch and break the loop:
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                }
+                if (shouldSwitch) {
+                    /* If a switch has been marked, make the switch
+                    and mark that a switch has been done: */
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    // Each time a switch is done, increase this count by 1:
+                    switchcount++;
+                } else {
+                    /* If no switching has been done AND the direction is "asc",
+                    set the direction to "desc" and run the while loop again. */
+                    if (switchcount == 0 && dir == "asc") {
+                        dir = "desc";
+                        switching = true;
+                    }
+                }
+            }
+        }
+
+	</script>
+
+	<meta charset="utf-8" />
+	<title>Super Mario Odyssey Trickjumping</title>
+</head>
+<body>
+	<div class="topnav">
+		<a class="active href="index.html">Home</a>
+		<a href="news.html">News</a>
+		<a href="contact.html">Contact</a>
+		<a href="leader.html">Leaderboards</a>
+
+
+
+		<!--LOGIN BAR-->
+		<span class="test">
+		Username:<input class="login" id="uName" type="text" />
+		Password:<input class="login" id="pWord" type="password" />
+
+		<input id="logButton" type="button" value="Login" />
+		<input id="regButton" type="button" value="Register" />
+
+		<input id="rememBox" type="checkbox" />Remember Me?
+		</span>
+
+
+	</div>
+
+	<div id="jumptable">
+
+		<h1 class="title" align="center">SMO Elite Trickjump List</h1>
+
+		<!--SEARCH BAR-->
+		<p align="center">
+			<img class="searchimg" src="cappy.png" height="18" width="28" /> <input class="search" id="first" type="text" onkeyup="searchFunction()" placeholder="Search by jump name.." size="50" />
+		</p>
+
+		<br /><br />
+		<!--Table RESULTS-->
+		<div class="tableFixHead" id="final">
+			<table id="jTable" border="1">
+				<thead>
+					<tr>
+						<th onclick="sortTable(0)">Jump Name</th>
+						<th onclick="sortTable(1)">Tier</th>
+						<th onclick="sortTable(2)">Jump Type</th>
+						<th onclick="sortTable(3)">Kingdom</th>
+						<th onclick="sortTable(4)">Founder</th>
+						<th onclick="sortTable(5)">Prover</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><button id="tdskipper" onclick="ftdskipper()">2D Skipper</button></td>
+						<td>Low</td>
+						<td>Triple</td>
+						<td>Sand Kingdom</td>
+						<td>JoniKauf</td>
+						<td>JoniKauf</td>
+					</tr>
+					<tr>
+						<td><button id="aassault" onclick="faassault()">Airborne Assault</button></td>
+						<td>Low</td>
+						<td>Vault</td>
+						<td>Metro Kingdom</td>
+						<td>Nix</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td><button id="bambean" onclick="fbambean()">BamBoozled Beanstalk</button></td>
+						<td>Low</td>
+						<td>Triple</td>
+						<td>Mushroom Kingdom</td>
+						<td>AwesomeAggron</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td><button id="barbean" onclick="fbarbean()">Barrier Beans</button></td>
+						<td>Low</td>
+						<td>Triple</td>
+						<td>Metro Kingdom</td>
+						<td>Atreyu</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td><button id="burrbobb" onclick="fburrbobb()">Burrbo Bridge Bypass</button></td>
+						<td>Low</td>
+						<td>Triple</td>
+						<td>Cascade Kingdom</td>
+						<td>Moomoo</td>
+						<td>Moomoo</td>
+					</tr>
+					<tr>
+						<td><button id="bst" onclick="fbst()">Bridge Skipper 2.0</button></td>
+						<td>Low</td>
+						<td>Triple</td>
+						<td>Bowser's Kingdom</td>
+						<td>YellowSMO</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td><button id="cbo" onclick="fcbo()">Cardboard Outskirts</button></td>
+						<td>Low</td>
+						<td>Triple</td>
+						<td>Sand Kingdom</td>
+						<td>CorDar</td>
+						<td>CorDar</td>
+					</tr>
+					<tr>
+						<td><button id="cva" onclick="fcva()">Cheese Vault Assault</button></td>
+						<td>Low</td>
+						<td>Vault</td>
+						<td>Luncheon Kingdom</td>
+						<td>AwesomeAggron</td>
+						<td>AwesomeAggron</td>
+					</tr>
+					<tr>
+						<td><button id="cloudo" onclick="fcloudo()">Cloud Overlook</button></td>
+						<td>Low</td>
+						<td>Vault</td>
+						<td>Wooded Kingdom</td>
+						<td>Spirel</td>
+						<td>Eaglegamer</td>
+					</tr>
+					<tr>
+						<td><button id="cushionc" onclick="fcushionc()">Cushion Chasm</button></td>
+						<td>Low</td>
+						<td>Triple</td>
+						<td>Bowser's Kingdom</td>
+						<td>Aqua</td>
+						<td></td>
+					</tr>
+
+
+				</tbody>
+
+			</table>
+
+		</div>
+
+
+	</div><br /><br />
+	<div class="name" align="center" id="jName">
+
+	</div>
+	<br />
+	<div align="center" id="jInfo">
+
+	</div>
+	<br />
+	<div class="jLink" align="center" id="jLink">
+
+	</div>
+	<br />
+	<br />
+
+	<p align="center">
+		<img src="mario.png" height="10%" width="25%" />
+	</p>
+	<br /><br /><br />
+	<div align="center">
+		_____________________________________________________________________________________<br />
+	</div>
+	<div class="footer" align="center">
+		Site under construction. For more information, please visit our <a style="text-decoration:underline" href="https://discord.gg/MSS9JxRPU6">Discord</a>.
+	</div>
+
+</body>
+</html>
